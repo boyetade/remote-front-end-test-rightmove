@@ -19,26 +19,9 @@ import './PropertyListing.scss';
 
 
 
-const PropertyListing = () => {
+const PropertyListing = ({propertyData}) => {
 
-    const [propertyData, setPropertyData] = useState([]);
-
-    useEffect(() => {
-        const  fetchPropertyData = async () => {
-            try {
-              const resp = await fetch('http://localhost:3000/api/properties'); 
-              const data = await resp.json(); 
-              setPropertyData(data);
-            
-
-            } catch (error) {
-                console.error('Error has been found: ', error);
-            }
-            
-        };
-        fetchPropertyData();
-    },[])
-
+  
     return (
         <ul className="PropertyListing">
             {propertyData
